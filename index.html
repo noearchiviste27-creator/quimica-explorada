@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuímicaExplorada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">⚗</div>
+                    <h1>QuímicaExplorada</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" id="homeLink">Inicio</a></li>
+                    <li><a href="#" id="toolsBtn">Herramientas</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Comunidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal (Inicio) -->
+    <section class="hero" id="heroSection">
+        <div class="container">
+            <h2>Explora el Mundo de la Química</h2>
+            <p>Descubre los secretos de la materia, las reacciones químicas y los elementos que componen nuestro universo. Aprende, experimenta y conéctate con otros apasionados de la química.</p>
+            
+            <div class="menu-options">
+                <div class="option-card">
+                    <div class="option-icon">🔐</div>
+                    <h3>Iniciar Sesión</h3>
+                    <p>Accede a tu cuenta para continuar tu aprendizaje y acceder a contenido exclusivo.</p>
+                    <button class="btn" id="loginBtn">Iniciar Sesión</button>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-icon">📝</div>
+                    <h3>Registrarse</h3>
+                    <p>Únete a nuestra comunidad y comienza tu viaje en el fascinante mundo de la química.</p>
+                    <button class="btn" id="registerBtn">Crear Cuenta</button>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-icon">🧪</div>
+                    <h3>Tabla Periódica</h3>
+                    <p>Explora la tabla periódica interactiva con información detallada de todos los elementos.</p>
+                    <button class="btn" id="periodicTableBtn">Ver Tabla</button>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-icon">💡</div>
+                    <h3>Recursos de Apoyo</h3>
+                    <p>Encuentra videos, sitios web y herramientas para mejorar tu aprendizaje en química.</p>
+                    <button class="btn" id="supportBtn">Ver Recursos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Herramientas Interactivas -->
+    <section class="tools-section" id="toolsSection">
+        <div class="container">
+            <h2 class="tools-title">Herramientas Interactivas</h2>
+            
+            <div class="tools-container">
+                <!-- Calculadora Química Avanzada -->
+                <div class="tool-card">
+                    <div class="tool-icon">🧮</div>
+                    <h3>Calculadora Química Avanzada</h3>
+                    <p>Herramientas completas para cálculos químicos: masas molares, balanceo, concentraciones y más.</p>
+                    
+                    <div class="calculator-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="molar-mass">Masa Molar</button>
+                            <button class="tab-btn" data-tab="equation-balancer">Balancear Ecuación</button>
+                            <button class="tab-btn" data-tab="concentration">Concentraciones</button>
+                            <button class="tab-btn" data-tab="ph-calculator">pH</button>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <!-- Pestaña Masa Molar -->
+                            <div class="tab-pane active" id="molar-mass-tab">
+                                <div class="input-group">
+                                    <label for="compoundInput">Fórmula Química:</label>
+                                    <input type="text" id="compoundInput" placeholder="Ej: H2O, NaCl, C6H12O6">
+                                </div>
+                                <button id="calculateBtn" class="btn">Calcular Masa Molar</button>
+                                <div id="result" class="result">
+                                    <!-- Los resultados aparecerán aquí -->
+                                </div>
+                            </div>
+                            
+                            <!-- Pestaña Balanceador de Ecuaciones -->
+                            <div class="tab-pane" id="equation-balancer-tab">
+                                <div class="input-group">
+                                    <label for="equationInput">Ecuación Química:</label>
+                                    <input type="text" id="equationInput" placeholder="Ej: H2 + O2 -> H2O">
+                                </div>
+                                <button id="balanceBtn" class="btn">Balancear Ecuación</button>
+                                <div id="equationResult" class="result">
+                                    <!-- Los resultados aparecerán aquí -->
+                                </div>
+                            </div>
+                            
+                            <!-- Pestaña Concentraciones -->
+                            <div class="tab-pane" id="concentration-tab">
+                                <div class="input-group">
+                                    <label for="massInput">Masa (g):</label>
+                                    <input type="number" id="massInput" placeholder="Ej: 5.85" step="0.001" min="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="volumeInput">Volumen (mL):</label>
+                                    <input type="number" id="volumeInput" placeholder="Ej: 250" step="0.1" min="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="molarMassInput">Masa Molar (g/mol):</label>
+                                    <input type="number" id="molarMassInput" placeholder="Ej: 58.44" step="0.001" min="0">
+                                </div>
+                                <button id="concentrationBtn" class="btn">Calcular Concentración</button>
+                                <div id="concentrationResult" class="result">
+                                    <!-- Los resultados aparecerán aquí -->
+                                </div>
+                            </div>
+                            
+                            <!-- Pestaña pH -->
+                            <div class="tab-pane" id="ph-calculator-tab">
+                                <div class="input-group">
+                                    <label for="concentrationPHInput">Concentración (mol/L):</label>
+                                    <input type="number" id="concentrationPHInput" placeholder="Ej: 0.001" step="0.0001" min="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="acidBaseSelect">Tipo:</label>
+                                    <select id="acidBaseSelect">
+                                        <option value="acid">Ácido</option>
+                                        <option value="base">Base</option>
+                                    </select>
+                                </div>
+                                <button id="phBtn" class="btn">Calcular pH</button>
+                                <div id="phResult" class="result">
+                                    <!-- Los resultados aparecerán aquí -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tabla Periódica -->
+                <div class="tool-card">
+                    <div class="tool-icon">⚗️</div>
+                    <h3>Tabla Periódica Interactiva</h3>
+                    <p>Explora todos los elementos con información detallada y propiedades. Haz clic en cualquier elemento para ver sus características.</p>
+                    <button class="btn" id="toolsPeriodicTableBtn">Abrir Tabla Periódica</button>
+                </div>
+            </div>
+            
+            <button class="btn back-btn" id="backToHomeFromTools">Volver al Inicio</button>
+        </div>
+    </section>
+
+    <!-- Sección de la tabla periódica -->
+    <section class="periodic-table-section" id="periodicTableSection">
+        <div class="container">
+            <h2 class="periodic-table-title">Tabla Periódica Interactiva</h2>
+            
+            <div class="periodic-table-container">
+                <div class="periodic-table" id="periodicTable">
+                    <!-- La tabla periódica se generará con JavaScript -->
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FF6B6B;"></div>
+                        <span>Metales alcalinos</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #4ECDC4;"></div>
+                        <span>Metales alcalinotérreos</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #45B7D1;"></div>
+                        <span>Metales de transición</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #96CEB4;"></div>
+                        <span>Otros metales</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FFEAA7;"></div>
+                        <span>Metaloides</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FDCB6E;"></div>
+                        <span>No metales</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #A29BFE;"></div>
+                        <span>Halógenos</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #6C5CE7;"></div>
+                        <span>Gases nobles</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FD79A8;"></div>
+                        <span>Lantánidos</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #E84393;"></div>
+                        <span>Actínidos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn back-btn" id="backToHomeBtn">Volver al Inicio</button>
+        </div>
+    </section>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Iniciar Sesión</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Correo Electrónico</label>
+                        <input type="email" id="loginEmail" required placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Contraseña</label>
+                        <input type="password" id="loginPassword" required placeholder="Ingresa tu contraseña">
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Recordarme</label>
+                        </div>
+                        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Iniciar Sesión</button>
+                </form>
+                
+                <div class="form-divider">
+                    <span>O inicia sesión con</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-btn" type="button">
+                        <span>Google</span>
+                    </button>
+                    <button class="social-btn" type="button">
+                        <span>Facebook</span>
+                    </button>
+                </div>
+                
+                <div class="switch-form">
+                    ¿No tienes una cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Crear Cuenta</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Nombre Completo</label>
+                        <input type="text" id="registerName" required placeholder="Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Correo Electrónico</label>
+                        <input type="email" id="registerEmail" required placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Contraseña</label>
+                        <input type="password" id="registerPassword" required placeholder="Crea una contraseña segura">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirmar Contraseña</label>
+                        <input type="password" id="registerConfirmPassword" required placeholder="Repite tu contraseña">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerInterests">Intereses en Química</label>
+                        <input type="text" id="registerInterests" placeholder="Ej: Química Orgánica, Bioquímica...">
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="acceptTerms" required>
+                            <label for="acceptTerms">Acepto los términos y condiciones</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Crear Cuenta</button>
+                </form>
+                
+                <div class="form-divider">
+                    <span>O regístrate con</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-btn" type="button">
+                        <span>Google</span>
+                    </button>
+                    <button class="social-btn" type="button">
+                        <span>Facebook</span>
+                    </button>
+                </div>
+                
+                <div class="switch-form">
+                    ¿Ya tienes una cuenta? <a href="#" id="switchToLogin">Inicia sesión aquí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Recursos de Apoyo -->
+    <div class="modal" id="supportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Recursos de Apoyo</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="resource-category">
+                    <h3>Videos Educativos</h3>
+                    <div class="support-resources">
+                        <div class="resource-card">
+                            <div class="resource-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <div class="resource-play">▶</div>
+                            </div>
+                            <div class="resource-content">
+                                <h4>Introducción a la Química</h4>
+                                <p>Conceptos básicos de química para principiantes. Aprende sobre átomos, moléculas y enlaces químicos.</p>
+                                <a href="https://youtu.be/2jyxYUQXKBQ?si=hxDxPsmS1fKmRAEr" target="_blank" class="resource-link">Ver Video →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <div class="resource-play">▶</div>
+                            </div>
+                            <div class="resource-content">
+                                <h4>Tabla Periódica Explicada</h4>
+                                <p>Guía completa para entender la organización y propiedades de los elementos en la tabla periódica.</p>
+                                <a href="https://youtu.be/STTySxTMyDU?si=tUu0lB-ZGn4arP-M" target="_blank" class="resource-link">Ver Video →</a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <div class="resource-play">▶</div>
+                            </div>
+                            <div class="resource-content">
+                                <h4>Reacciones Químicas</h4>
+                                <p>Aprende sobre los diferentes tipos de reacciones químicas y cómo balancear ecuaciones.</p>
+                                <a href="https://youtu.be/2fUY1ufsN60?si=QJh6s7X8w9gYr6k2" target="_blank" class="resource-link">Ver Video →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-category">
+                    <h3>Herramientas Interactivas</h3>
+                    <div class="support-resources">
+                        <div class="resource-card">
+                            <div class="resource-img" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                            <div class="resource-content">
+                                <h4>Calculadora Química</h4>
+                                <p>Calcula masas molares, balancea ecuaciones y resuelve problemas químicos.</p>
+                                <a href="#" class="resource-link" id="openCalculator">Utilizar →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-img" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);"></div>
+                            <div class="resource-content">
+                                <h4>Tabla Periódica Interactiva</h4>
+                                <p>Explora todos los elementos con información detallada y propiedades.</p>
+                                <a href="#" class="resource-link" id="openPeriodicTable">Explorar →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de detalles del elemento -->
+    <div class="modal" id="elementModal">
+        <div class="modal-content element-modal">
+            <div class="modal-header">
+                <h2 id="elementModalTitle">Detalles del Elemento</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="element-details" id="elementDetails">
+                    <!-- Los detalles del elemento se llenarán con JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Explora el Mundo de la Química - Todos los derechos reservados &copy; 2025</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Uso</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
